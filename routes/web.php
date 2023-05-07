@@ -6,6 +6,10 @@ use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ContactFormController;
 use App\Http\Controllers\Admin\SosialMediaController;
+use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductImageController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -26,10 +30,16 @@ Route::get('//', function () {
 //Route::get('/',[SiteController::class,'home'])->name('home');
 
 
+Route::get('/admin/login',[LoginController::class,'index'])->name('admin.login');
+Route::post('/admin/login',[LoginController::class,'login'])->name('admin.login');
 
 
-Route::group(['prefix' => 'admin'],function(){
+
+//admin
+Route::group(['prefix' => 'admin','middleware'=>'admincheck'],function(){
     Route::get('/',[AdminController::class,'index'])->name('admin.home');
+
+    Route::get('/logout',[LoginController::class,'logout'])->name('admin.logout');
 
 
     Route::group(['prefix'=>'menu'],function (){
@@ -41,9 +51,13 @@ Route::group(['prefix' => 'admin'],function(){
         Route::delete('/delete/{id}',[MenuController::class,'delete'])->name('menu.delete');
     });
 
-    Route::resource('page',PageController::class)->except('show');
 
+    Route::resource('page',PageController::class)->except('show');
     Route::resource('contact',ContactController::class)->except('show');
+    Route::resource('category',CategoryController::class)->except('show');
+    Route::resource('product',ProductController::class)->except('show');
+    Route::resource('productimage',ProductImageController::class)->except('show');
+
 
     Route::group(['prefix'=>'contactform'],function (){
         Route::get('/',[ContactFormController::class,'index'])->name('contactform.index');

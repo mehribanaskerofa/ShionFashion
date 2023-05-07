@@ -1,0 +1,16 @@
+php artisan {
+serve-
+tinker- (User::create(['email'=>'admin@mail.ru','password'=>Hash::make('admin123')]))
+
+make:{
+controller AdminController
+model AdminModel
+request AdminRequset
+migration create_admin_table
+migration add_slug_column_to_admin_table
+}
+migrate:{
+rollback-
+}
+
+}

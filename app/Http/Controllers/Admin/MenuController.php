@@ -22,6 +22,8 @@ class MenuController extends Controller
 
     public function store(Request $request)
     {
+       // $request->all(); validasiyali ve validasizyasiz butun datalar
+        //$request->validate(); yalniz validasiyali
         $validated = $request->validate([
             'title' => 'required|min:3',
             'url' => 'required|url'
