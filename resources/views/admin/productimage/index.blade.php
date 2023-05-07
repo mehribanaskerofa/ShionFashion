@@ -9,7 +9,7 @@
                 <tr>
                     <th style="width: 10px">#</th>
                     <th>Image</th>
-                    <th>Category</th>
+                    <th>Product</th>
                     <th>Created date</th>
                     <th style="width: 50px">Edit</th>
                     <th style="width: 50px">Delete</th>
@@ -24,7 +24,7 @@
                                 <img src="{{asset('storage/images/'.$data->image)}}" width="100px">
                         </td>
 
-                        <td>{{$data->category->title}}</td>
+                        <td>{{$data->product->title}}</td>
                         <td>{{$data->created_at->diffForHumans()}}</td>
                         <td>
                             <a href="{{route('productimage.edit',$data->id)}}" class="btn btn-warning">Edit</a>

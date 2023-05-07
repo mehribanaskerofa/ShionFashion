@@ -23,10 +23,9 @@
             </div>
 
             <div class="form-group">
-                <label>Category</label>
+                <label>Product</label>
                 <select name="product_id" class="form-control">
                     @foreach($products as $product)
-{{--                        <option value="{{$category->id}}" @isset($product) @if($product->$category_id==$category->id){ selected="selected"} @endisset >{{$category->title}}</option>--}}
                         <option value="{{$product->id}}" @isset($productImage) @selected(old($product->id,$productImage->$product_id)==$product->id) @endisset >{{$product->title}}</option>
                     @endforeach
                 </select>
