@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/favicon.ico')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- CSS here -->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
@@ -24,6 +25,11 @@
     <link rel="stylesheet" href="{{asset('assets/css/slick.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/nice-select.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <style>
+        #slick-slide-control00{
+            opacity: 0;
+        }
+    </style>
 
 </head>
 <body class="full-wrapper">
@@ -54,18 +60,9 @@
                         <div class="main-menu  d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="shop.html">shop</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="blog.html">Blog</a>
-                                        <ul class="submenu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog_details.html">Blog Details</a></li>
-                                            <li><a href="elements.html">Elements</a></li>
-                                            <li><a href="product_details.html">Product Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    @foreach($menuList as $list)
+                                        <li><a href="{{$list->url}}">{{$list->title}}</a></li>
+                                    @endforeach
                                 </ul>
                             </nav>
                         </div>
@@ -73,9 +70,9 @@
                     <div class="header-right1 d-flex align-items-center">
                         <!-- Social -->
                         <div class="header-social d-none d-md-block">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            @foreach($sosialmedia as $media)
+                                <a href="{{$media->hurl}}">{!! $media->icon !!}</a>
+                            @endforeach
                         </div>
                         <!-- Search Box -->
                         <div class="search d-none d-md-block">
@@ -132,33 +129,22 @@
                             </div>
                             <!-- social -->
                             <div class="footer-social">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                @foreach($sosialmedia as $media)
+                                    <a href="{{$media->hurl}}">{!! $media->icon !!}</a>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
-                    <div class="single-footer-caption mb-50">
-                        <div class="footer-tittle">
-                            <h4>Quick links</h4>
-                            <ul>
-                                <li><a href="#">Image Licensin</a></li>
-                                <li><a href="#">Style Guide</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
                     <div class="single-footer-caption mb-50">
                         <div class="footer-tittle">
                             <h4>Shop Category</h4>
                             <ul>
-                                <li><a href="#">Image Licensin</a></li>
-                                <li><a href="#">Style Guide</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
+                                @foreach($categories3 as $category)
+                                    <li><a href="#">{{$category->title}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -166,11 +152,11 @@
                 <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
                     <div class="single-footer-caption mb-50">
                         <div class="footer-tittle">
-                            <h4>Pertners</h4>
+                            <h4>Pages</h4>
                             <ul>
-                                <li><a href="#">Image Licensin</a></li>
-                                <li><a href="#">Style Guide</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
+                                @foreach($menuList as $list)
+                                    <li><a href="{{$list->url}}">{{$list->title}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>

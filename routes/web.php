@@ -11,6 +11,10 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductImageController;
 
+
+
+use App\Http\Controllers\SiteController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,10 +28,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('//', function () {
-    return view('welcome');
-});
-//Route::get('/',[SiteController::class,'home'])->name('home');
+//Route::get('//', function () {
+//    return view('welcome');
+//});
+Route::get('/',[SiteController::class,'home'])->name('home');
+Route::get('/shop',[SiteController::class,'shop'])->name('shop');
+Route::get('/about',[SiteController::class,'about'])->name('about');
+Route::get('/contact',[SiteController::class,'contact'])->name('contact');
+Route::post('/contact',[SiteController::class,'contactstore'])->name('contactstore');
+Route::get('/page/{slug}',[SiteController::class,'page'])->name('page');
 
 
 Route::get('/admin/login',[LoginController::class,'index'])->name('admin.login');
