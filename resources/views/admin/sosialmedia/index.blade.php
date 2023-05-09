@@ -23,11 +23,11 @@
                         <td>{!! $data->icon !!}</td>
                         <td>{{$data->hurl}}</td>
                         <td>
-                            <a href="{{route('sosialmedia.edit',$data->id)}}" class="btn btn-warning">Edit</a>
+                            <a href="{{route('sosialmedia.edit',$data)}}" class="btn btn-warning">Edit</a>
                         </td>
                         <td>
 {{--                            //action="{{route('menu.delete',$menu->id)}}"--}}
-                            <form class="delete-form" action="{{ route('sosialmedia.destroy',$data->id) }}" method="POST">
+                            <form class="delete-form" action="{{ route('sosialmedia.destroy',$data) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-danger">Delete</button>

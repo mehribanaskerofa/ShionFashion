@@ -4,7 +4,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form action="{{ isset($product) ? route('product.update',$product->id) :  route('product.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ isset($product) ? route('product.update',$product) :  route('product.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             @isset($product)
             @method('PUT')

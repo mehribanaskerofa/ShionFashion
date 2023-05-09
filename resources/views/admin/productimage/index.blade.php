@@ -27,10 +27,10 @@
                         <td>{{$data->product->title}}</td>
                         <td>{{$data->created_at->diffForHumans()}}</td>
                         <td>
-                            <a href="{{route('productimage.edit',$data->id)}}" class="btn btn-warning">Edit</a>
+                            <a href="{{route('productimage.edit',$data)}}" class="btn btn-warning">Edit</a>
                         </td>
                         <td>
-                            <form class="delete-form" action="{{ route('productimage.destroy',$data->id) }}" method="POST">
+                            <form class="delete-form" action="{{ route('productimage.destroy',$data) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-danger">Delete</button>

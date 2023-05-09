@@ -1,6 +1,6 @@
 <p class="text-danger">{{ auth()->user()->email ?? '' }}</p>
 <li class="nav-item">
-{{--    <a href="{{route('home')}}" target="_blank" class="nav-link">--}}
+    <a href="{{route('home')}}" target="_blank" class="nav-link">
         <i class="nav-icon fas fa-th"></i>
         <p>
             Website

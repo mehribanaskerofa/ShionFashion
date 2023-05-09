@@ -66,7 +66,7 @@
                                     <span>{{$category->title}}</span>
                                 </div>
                                 <div class="favorit-items">
-                                    <a href="shop.html" class="btn">Shop Now</a>
+                                    <a href="{{route('shopcategory',$category->title)}}" class="btn">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         <div class="popular-caption">
-                            <h3><a href="product_details.html">{{$product->title}}</a></h3>
+                            <h3><a href="{{route('productdetail',$product->id)}}">{{$product->title}}</a></h3>
                             <div class="rating mb-10">{{$product->category->title}}  </div>
                             <span>$ {{$product->price}}</span>
                         </div>

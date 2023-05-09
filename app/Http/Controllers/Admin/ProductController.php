@@ -32,7 +32,6 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         $data=$request->validated();
-
         $imageName=Str::uuid()->toString().'.'.$request->image->extension();
         $request->image->storeAs($imageName,['disk' => 'public_images']);
         $data['image']=$imageName;

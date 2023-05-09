@@ -28,7 +28,7 @@
                         <td>{{$data->email ?? ''}}</td>
                         <td>{{$data->date ?? ''}}</td>
                         <td>
-                            <a href="{{route('contact.edit',$data->id)}}" class="btn btn-warning">Edit</a>
+                            <a href="{{route('contact.edit',$data)}}" class="btn btn-warning">Edit</a>
                         </td>
 {{--                        <td>--}}
 {{--                            //action="{{route('menu.delete',$menu->id)}}"--}}

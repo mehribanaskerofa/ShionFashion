@@ -3,7 +3,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form action="{{ isset($sosialmedia) ? route('sosialmedia.update',$sosialmedia->id) :  route('sosialmedia.store')}}" method="POST">
+        <form action="{{ isset($sosialmedia) ? route('sosialmedia.update',$sosialmedia) :  route('sosialmedia.store')}}" method="POST">
             @csrf
             @isset($sosialmedia)
             @method('PUT')

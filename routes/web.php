@@ -33,6 +33,8 @@ use Illuminate\Support\Facades\Route;
 //});
 Route::get('/',[SiteController::class,'home'])->name('home');
 Route::get('/shop',[SiteController::class,'shop'])->name('shop');
+Route::get('/shop/{title}',[SiteController::class,'shopcategory'])->name('shopcategory');
+Route::get('/product/{id}',[SiteController::class,'productdetail'])->name('productdetail');
 Route::get('/about',[SiteController::class,'about'])->name('about');
 Route::get('/contact',[SiteController::class,'contact'])->name('contact');
 Route::post('/contact',[SiteController::class,'contactstore'])->name('contactstore');
@@ -66,13 +68,13 @@ Route::group(['prefix' => 'admin','middleware'=>'admincheck'],function(){
     Route::resource('category',CategoryController::class)->except('show');
     Route::resource('product',ProductController::class)->except('show');
     Route::resource('productimage',ProductImageController::class)->except('show');
+    Route::resource('sosialmedia',SosialMediaController::class)->except('show');
 
 
     Route::group(['prefix'=>'contactform'],function (){
         Route::get('/',[ContactFormController::class,'index'])->name('contactform.index');
-        Route::delete('/delete/{id}',[ContactFormController::class,'delete'])->name('contactform.destroy');
+        Route::delete('/delete/{contactform}',[ContactFormController::class,'destroy'])->name('contactform.destroy');
     });
 
-    Route::resource('sosialmedia',SosialMediaController::class)->except('show');
 
 });

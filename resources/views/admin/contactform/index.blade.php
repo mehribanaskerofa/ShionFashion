@@ -26,7 +26,7 @@
                         <td>{{$data->message ?? ''}}</td>
                         <td>
 {{--                            //action="{{route('contactform.delete',$menu->id)}}"--}}
-                            <form class="delete-form" action="{{ route('contactform.delete',$data->id) }}" method="POST">
+                            <form class="delete-form" action="{{ route('contactform.destroy',$data) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-danger">Delete</button>
