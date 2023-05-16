@@ -8,9 +8,9 @@
                 <div class="col-lg-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">shop</a></li>
-                            <li class="breadcrumb-item"><a href="#">Product Details</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('shop')}}">shop</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Product Details</a></li>
                         </ol>
                     </nav>
                 </div>

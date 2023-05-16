@@ -6,12 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Validato;
+use Symfony\Component\Mailer\Messenger\MessageHandler;
+
 class MenuController extends Controller
 {
     public function index()
     {
 //        $menuList = Menu::all();
-        $menuList = Menu::paginate(2);
+        $menuList = Menu::paginate(5);
         return view('admin.menu.index',compact('menuList'));
     }
 
@@ -26,31 +28,44 @@ class MenuController extends Controller
         //$request->validate(); yalniz validasiyali
         $validated = $request->validate([
             'title' => 'required|min:3',
-            'url' => 'required|url'
+            'url' => 'required|url',
+            'is_active'=>'boolean',
+            'parent_id'=>'exists:menu,id'
         ]);
 
         Menu::create([
             'title' => $request->title,
-            'url' => $request->url
+            'url' => $request->url,
+            'is_active'=>$request->is_active ?? false,
+            'parent_id'=>$request->parent_id
         ]);
-        return redirect()->route('menu.index');
+        $menus=Menu::all();
+        return redirect()->route('menu.index',compact('menus'));
     }
 
     public function edit($id)
     {
         $menu = Menu::where('id',$id)->firstOrFail();
-        return view('admin.menu.form',compact('menu'));
+        $menus=Menu::all();
+        return view('admin.menu.form',compact('menu','menus'));
     }
 
     public function update($id,Request $request)
     {
         $validated = $request->validate([
             'title' => 'required|min:3',
-            'url' => 'required|url'
+            'url' => 'required|url',
+            'is_active'=>'boolean',
+            'parent_id'=>'exists:menu,id'
+        ],[
+            'title.required'=>'dont require'
         ]);
         $menu = Menu::where('id',$id)->firstOrFail();
         $menu->title = $request->title;
         $menu->url = $request->url;
+        $menu->is_active = $request->is_active ?? false;
+        $menu->parent_id=$request->parent_id;
+
         $menu->save();
 
 //        Menu::updated([

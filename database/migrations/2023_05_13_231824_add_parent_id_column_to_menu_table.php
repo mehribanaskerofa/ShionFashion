@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menu', function (Blueprint $table) {
-            $table->id();
-            $table->string('title',255);
-            $table->text('url');
+        Schema::table('menu', function (Blueprint $table) {
+            $table->unsignedSmallInteger('parent_id')->nullable();
         });
-
     }
 
     /**
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menu');
+        Schema::table('menu', function (Blueprint $table) {
+            $table->dropColumn('parent_id');
+        });
     }
 };

@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductImageController;
+use App\Http\Controllers\UserController;
 
 
 
@@ -40,8 +41,13 @@ Route::get('/contact',[SiteController::class,'contact'])->name('contact');
 Route::post('/contact',[SiteController::class,'contactstore'])->name('contactstore');
 Route::get('/page/{slug}',[SiteController::class,'page'])->name('page');
 
+Route::get('/register',[UserController::class,'register'])->name('register');
+Route::post('registeruser',[UserController::class,'registeruser'])->name('registeruser');
 
 Route::get('/admin/login',[LoginController::class,'index'])->name('admin.login');
+Route::get('/regis',function (){
+    return view('mail/user-register-mail');
+})->name('regis');
 Route::post('/admin/login',[LoginController::class,'login'])->name('admin.login');
 
 

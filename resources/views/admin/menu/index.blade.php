@@ -10,6 +10,7 @@
                     <th style="width: 10px">#</th>
                     <th>Title</th>
                     <th>Url</th>
+                    <th>Parent id</th>
                     <th style="width: 50px">Edit</th>
                     <th style="width: 50px">Delete</th>
                 </tr>
@@ -20,6 +21,7 @@
                         <td>{{$data->id}}</td>
                         <td>{{$data->title}}</td>
                         <td>{{$data->url}}</td>
+                        <td>{{$data->parent_id}}</td>
                         <td>
                             <a href="{{route('menu.edit',$data->id)}}" class="btn btn-warning">Edit</a>
                         </td>

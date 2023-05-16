@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menu', function (Blueprint $table) {
-            $table->id();
-            $table->string('title',255);
-            $table->text('url');
+        Schema::table('menu', function (Blueprint $table) {
+//            $table->timestamp('deleted_at');
+            $table->softDeletes();
         });
-
     }
 
     /**
@@ -24,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menu');
+        Schema::table('menu', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 };

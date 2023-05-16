@@ -21,28 +21,28 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" placeholder=" Enter Message">salam house</textarea>
+                                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" placeholder=" Enter Message"></textarea>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input class="form-control valid" name="name" id="name" type="text" value="mehribsn"  placeholder="Enter your name">
+                                <input class="form-control valid" name="name" id="name" type="text" value=""  placeholder="Enter your name">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input class="form-control valid" name="email" id="email" type="email" value="m.askerova.99@mail.ru" placeholder="Email">
+                                <input class="form-control valid" name="email" id="email" type="email" value="" placeholder="Email">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <input class="form-control" name="subject" id="subject" type="text" value="salam" placeholder="Enter Subject">
+                                <input class="form-control" name="subject" id="subject" type="text" value="" placeholder="Enter Subject">
                             </div>
                         </div>
                     </div>
-{{--                    <div class="form-group mt-3">--}}
+                    <div class="form-group mt-3">
                         <button class="btn btn-secondary">Send</button>
-{{--                    </div>--}}
+                    </div>
                 </form>
             </div>
             <div class="col-lg-3 offset-lg-1">

@@ -39,7 +39,7 @@
         <div class="preloader-inner position-relative">
             <div class="preloader-circle"></div>
             <div class="preloader-img pere-text">
-                <img src="{{asset('assets/img/logo/loder.png')}}" alt="">
+                <img src="{{asset('assets/img/logo/loader.png')}}" alt="">
             </div>
         </div>
     </div>
@@ -54,18 +54,21 @@
                     <div class="header-left d-flex align-items-center">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="{{asset('assets/img/logo/logo.png')}}" alt=""></a>
+                            <a href="{{route('home')}}"><img style="height: 50px" src="{{asset('assets/img/logo/logov.png')}}" alt=""></a>
                         </div>
+
+                        @include('includes.menu.menu',compact('menuList'))
+
                         <!-- Main-menu -->
-                        <div class="main-menu  d-none d-lg-block">
-                            <nav>
-                                <ul id="navigation">
-                                    @foreach($menuList as $list)
-                                        <li><a href="{{$list->url}}">{{$list->title}}</a></li>
-                                    @endforeach
-                                </ul>
-                            </nav>
-                        </div>
+{{--                        <div class="main-menu  d-none d-lg-block">--}}
+{{--                            <nav>--}}
+{{--                                <ul id="navigation">--}}
+{{--                                    @foreach($menuList as $list)--}}
+{{--                                        <li><a href="{{$list->url}}">{{$list->title}}</a></li>--}}
+{{--                                    @endforeach--}}
+{{--                                </ul>--}}
+{{--                            </nav>--}}
+{{--                        </div>--}}
                     </div>
                     <div class="header-right1 d-flex align-items-center">
                         <!-- Social -->
@@ -77,11 +80,11 @@
                         <!-- Search Box -->
                         <div class="search d-none d-md-block">
                             <ul class="d-flex align-items-center">
-                                <li class="mr-15">
-                                    <div class="nav-search search-switch">
-                                        <i class="ti-search"></i>
-                                    </div>
-                                </li>
+{{--                                <li class="mr-15">--}}
+{{--                                    <div class="nav-search search-switch">--}}
+{{--                                        <i class="ti-search"></i>--}}
+{{--                                    </div>--}}
+{{--                                </li>--}}
                                 <li>
                                     <div class="card-stor">
                                         <img src="{{asset('assets/img/gallery/card.svg')}}" alt="">
@@ -120,11 +123,13 @@
                         <div class="single-footer-caption mb-30">
                             <!-- logo -->
                             <div class="footer-logo mb-35">
-                                <a href="index.html"><img src="{{asset('assets/img/logo/logo2_footer.png')}}" alt=""></a>
+                                <h2 style="color: white">Vatechnology</h2>
+{{--                                <a href="index.html"><img src="{{asset('assets/img/logo/vatechlogo-transparency.png')}}"style="height: 200px" alt=""></a>--}}
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">
-                                    <p>Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
+                                    <p>The global power bank market is forecast to reach US$ 29.34 billion by 2030 by growing at a compound annual
+                                        growth rate (CAGR) of 5.9% during the forecast period from 2022 to 2030.</p>
                                 </div>
                             </div>
                             <!-- social -->
@@ -196,14 +201,14 @@
     <!-- Footer End-->
 </footer>
 <!--? Search model Begin -->
-<div class="search-model-box">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-btn">+</div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Searching key.....">
-        </form>
-    </div>
-</div>
+{{--<div class="search-model-box">--}}
+{{--    <div class="h-100 d-flex align-items-center justify-content-center">--}}
+{{--        <div class="search-close-btn">+</div>--}}
+{{--        <form class="search-model-form">--}}
+{{--            <input type="text" id="search-input" placeholder="Searching key.....">--}}
+{{--        </form>--}}
+{{--    </div>--}}
+{{--</div>--}}
 <!-- Search model end -->
 <!-- Scroll Up -->
 <div id="back-top" >
